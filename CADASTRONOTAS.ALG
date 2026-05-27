@@ -1,4 +1,4 @@
-Algoritmo "CadastroAlunosRegistro"
+Algoritmo "CadastroAlunos"
 
 Tipo
    Aluno = Registro
@@ -11,13 +11,16 @@ Tipo
 
 Var
    alunos : vetor[1..10] de Aluno
-   i, busca : inteiro
+   i, busca, encontrado : inteiro
 
 Inicio
 
+   encontrado <- 0
+
    Para i de 1 ate 10 faca
 
-      escreval("===== Cadastro do Aluno ", i, " =====")
+      escreval("===================================")
+      escreval("Cadastro do Aluno ", i)
 
       escreva("Nome: ")
       leia(alunos[i].nome)
@@ -33,7 +36,7 @@ Inicio
 
       alunos[i].media <- (alunos[i].p1 + alunos[i].p2) / 2
 
-      escreval("Media: ", alunos[i].media:0:2)
+      escreval("Media calculada: ", alunos[i].media:0:2)
       escreval("")
 
    FimPara
@@ -41,28 +44,34 @@ Inicio
    escreval("===== LISTA DE ALUNOS =====")
 
    Para i de 1 ate 10 faca
-      escreval(i, " - ", alunos[i].nome,
-               " | Matricula: ", alunos[i].matricula)
+      escreval(i, " - ", alunos[i].nome, " | Matricula: ", alunos[i].matricula)
    FimPara
 
    escreval("")
-   escreva("Digite a matricula do aluno: ")
+   escreva("Digite a matricula: ")
    leia(busca)
 
    Para i de 1 ate 10 faca
 
       Se busca = alunos[i].matricula entao
 
+         encontrado <- 1
+
          escreval("")
-         escreval("===== DADOS DO ALUNO =====")
+         escreval("===== ALUNO ENCONTRADO =====")
          escreval("Nome: ", alunos[i].nome)
          escreval("Matricula: ", alunos[i].matricula)
-         escreval("Nota P1: ", alunos[i].p1:0:2)
-         escreval("Nota P2: ", alunos[i].p2:0:2)
+         escreval("P1: ", alunos[i].p1:0:2)
+         escreval("P2: ", alunos[i].p2:0:2)
          escreval("Media: ", alunos[i].media:0:2)
 
       FimSe
 
    FimPara
+
+   Se encontrado = 0 entao
+      escreval("")
+      escreval("Aluno nao encontrado!")
+   FimSe
 
 Fimalgoritmo
