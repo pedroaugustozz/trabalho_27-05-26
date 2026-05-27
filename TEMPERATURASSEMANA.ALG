@@ -1,39 +1,61 @@
-Algoritmo "TemperaturasSemana"
+Algoritmo "TemperaturasComRegistro"
+
+Tipo
+   Dia = Registro
+      manha : real
+      tarde : real
+      noite : real
+      media : real
+   FimRegistro
 
 Var
-   manha, tarde, noite, media : vetor[1..7] de real
+   dias : vetor[1..7] de Dia
    i, diaMaisQuente : inteiro
    maiorMedia : real
 
 Inicio
 
    Para i de 1 ate 7 faca
+
       escreval("===== Dia ", i, " =====")
 
       escreva("Temperatura da manha: ")
-      leia(manha[i])
+      leia(dias[i].manha)
 
       escreva("Temperatura da tarde: ")
-      leia(tarde[i])
+      leia(dias[i].tarde)
 
       escreva("Temperatura da noite: ")
-      leia(noite[i])
+      leia(dias[i].noite)
 
-      media[i] <- (manha[i] + tarde[i] + noite[i]) / 3
+      dias[i].media <- (dias[i].manha +
+                         dias[i].tarde +
+                         dias[i].noite) / 3
+
+      escreval("Media do dia: ",
+                dias[i].media:0:2)
+
+      escreval("")
+
    FimPara
 
-   maiorMedia <- media[1]
+   maiorMedia <- dias[1].media
    diaMaisQuente <- 1
 
    Para i de 2 ate 7 faca
-      Se media[i] > maiorMedia entao
-         maiorMedia <- media[i]
+
+      Se dias[i].media > maiorMedia entao
+
+         maiorMedia <- dias[i].media
          diaMaisQuente <- i
+
       FimSe
+
    FimPara
 
-   escreval("")
-   escreval("O dia mais quente foi o dia ", diaMaisQuente)
-   escreval("Media de temperatura: ", maiorMedia:0:2)
+   escreval("===== RESULTADO =====")
+   escreval("Dia mais quente: ", diaMaisQuente)
+   escreval("Media de temperatura: ",
+             maiorMedia:0:2)
 
 Fimalgoritmo
