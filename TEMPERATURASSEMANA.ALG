@@ -28,12 +28,9 @@ Inicio
       escreva("Temperatura da noite: ")
       leia(dias[i].noite)
 
-      dias[i].media <- (dias[i].manha +
-                         dias[i].tarde +
-                         dias[i].noite) / 3
+     dias[i].media <- (dias[i].manha + dias[i].tarde + dias[i].noite) / 3
 
-      escreval("Media do dia: ",
-                dias[i].media:0:2)
+      escreval("Media do dia: ", dias[i].media:0:2)
 
       escreval("")
 
@@ -55,7 +52,6 @@ Inicio
 
    escreval("===== RESULTADO =====")
    escreval("Dia mais quente: ", diaMaisQuente)
-   escreval("Media de temperatura: ",
-             maiorMedia:0:2)
+   escreval("Media de temperatura: ", maiorMedia:0:2)
 
 Fimalgoritmo
